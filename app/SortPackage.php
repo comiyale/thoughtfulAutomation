@@ -2,6 +2,11 @@
 
 class SortPackage {
     public function sortPackage(float $width, float $height, float $length, float $mass): string {
+        // Validate input to ensure dimensions and mass are positive
+        if ($width <= 0 || $height <= 0 || $length <= 0 || $mass < 0) {
+            throw new \Exception("Dimensions and mass must be positive values.");
+        }
+        
         // Calculate the volume of the package
         $volume = $width * $height * $length;
 
